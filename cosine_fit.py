@@ -1,33 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Jun  7 18:45:52 2019
 
-@author: mehrdad
-"""
-#import basic_func as func
 import basic_func as func
 import numpy as np
 import matplotlib.pyplot as plt
 
 (xdata, ydata) = func.load_data()
-#print(np.cos([np.pi/2]))
-
 targets = ydata
 x = xdata
-# 0:361
-N_TRAIN = 200;
+N_TRAIN = 2000;
 x_train = x[0:N_TRAIN]
-#print(x_train)
 t_train = targets[0:N_TRAIN]
 x_test = x[N_TRAIN:]
 t_test = targets[N_TRAIN:]
 
 # Plot a curve showing learned function.
-# Use linspace to get a set of samples on which to evaluate     !!!!!  361--->500  !!!!!!!
-x_ev = np.linspace(np.asscalar(min(x)), np.asscalar(max(x)), num=361)
-t_ev = np.linspace(np.asscalar(min(targets)), np.asscalar(max(targets)), num=361)
-# optimum 4
+# Use linspace to get a set of samples on which to evaluate    
+x_ev = np.linspace(np.asscalar(min(x)), np.asscalar(max(x)), num=3601)
+t_ev = np.linspace(np.asscalar(min(targets)), np.asscalar(max(targets)), num=3601)
+
 (w, tr_err) = func.linear_regression(x_train, t_train, 'cosine', 0, 4)
 (t_est, te_err) = func.evaluate_regression(x_test, t_test, w, 'cosine', 4)
 
@@ -66,7 +57,7 @@ N = len(w)
 gamma = 180*np.ones(N) 
 V = np.zeros(N) 
 V[0] = 0.5*(w[0]-(abs(w[1])+abs(w[2])+abs(w[3])+abs(w[4])))
-gamma[0] = 0     #degree or 180
+gamma[0] = 0    
 
 for i in range(1, N):
     V[i,] = abs(w[i,])
