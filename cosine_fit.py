@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 (xdata, ydata) = func.load_data()
 targets = ydata
 x = xdata
-N_TRAIN = 2000;
+N_TRAIN = 0.6*len(x); # Take 60% of the dataset as training input
 x_train = x[0:N_TRAIN]
 t_train = targets[0:N_TRAIN]
 x_test = x[N_TRAIN:]
