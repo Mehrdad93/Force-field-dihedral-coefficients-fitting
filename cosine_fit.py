@@ -16,8 +16,8 @@ t_test = targets[N_TRAIN:]
 
 # Plot a curve showing learned function.
 # Use linspace to get a set of samples on which to evaluate    
-x_ev = np.linspace(np.asscalar(min(x)), np.asscalar(max(x)), num=3601)
-t_ev = np.linspace(np.asscalar(min(targets)), np.asscalar(max(targets)), num=3601)
+x_ev = np.linspace(np.asscalar(min(x)), np.asscalar(max(x)), num=len(x)+1)
+t_ev = np.linspace(np.asscalar(min(targets)), np.asscalar(max(targets)), num=len(x)+1)
 
 (w, tr_err) = func.linear_regression(x_train, t_train, 'cosine', 0, 4)
 (t_est, te_err) = func.evaluate_regression(x_test, t_test, w, 'cosine', 4)
