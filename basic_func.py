@@ -18,22 +18,6 @@ def load_data():
 
     return (xdata, ydata)
 
-#def normalize_data(x):
-#    """Normalize each column of x to have mean 0 and variance 1.
-#    Note that a better way to normalize the data is to whiten the data (decorrelate dimensions).  This can be done using PCA.
-#
-#    Args:
-#      input matrix of data to be normalized
-#
-#    Returns:
-#      normalized version of input matrix with each column with 0 mean and unit variance
-#
-#    """
-#    mvec = x.mean(0)
-#    stdvec = x.std(axis=0)
-#    
-#    return (x - mvec)/stdvec
-
 def linear_regression(x, t, basis, reg_lambda=0, degree=0):
     """Perform linear regression on a training set with specified regularizer lambda and basis
 
